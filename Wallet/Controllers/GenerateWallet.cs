@@ -31,8 +31,8 @@ namespace Wallet.Controllers
             try
             {
                 SqlCommand command = new SqlCommand();
-                command.CommandText = "API_OptionsWallet"; // Set the stored procedure name
-                command.CommandType = CommandType.StoredProcedure; // Set the command type to Stored Procedure
+                command.CommandText = "API_OptionsWallet";
+                command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@cardNumber", cardNumber);
                 command.Parameters.AddWithValue("@metodo", 1);
                 DataTable dt = _DB.ExecuteCommand(command).Tables[0];
@@ -199,31 +199,21 @@ namespace Wallet.Controllers
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    // Construir la URL completa para la API que devuelve los bytes del archivo
                     string apiUrl = "http://localhost:49915/byteFile/nameFile/" + nameFile + "/get";
-
-                    // Realizar la solicitud HTTP para obtener los bytes del archivo
                     HttpResponseMessage response = client.GetAsync(apiUrl).Result;
-
-                    // Verificar si la solicitud fue exitosa
                     if (response.IsSuccessStatusCode)
                     {
-                        // Leer y devolver los bytes del contenido de la respuesta
                         return response.Content.ReadAsByteArrayAsync().Result;
                     }
                     else
                     {
-                        // Manejar el caso en que la solicitud no fue exitosa
-                        Console.WriteLine($"Error al obtener el archivo {nameFile}. Código de estado: {response.StatusCode}");
-                        return null; // o lanzar una excepción, según lo que prefieras
+                        return null; 
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Manejar cualquier excepción que pueda ocurrir durante la lectura del archivo
-                Console.WriteLine($"Error al leer el archivo {nameFile}: {ex.Message}");
-                return null; // o lanzar una excepción, según lo que prefieras
+                 return null; 
             }
         }
 
