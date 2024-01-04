@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="BouncyCastle" Version="1.8.9" />
+		<PackageReference Include="CertificateAuthority.Client" Version="1.0.3" />
+		<PackageReference Include="dotnet-passbook" Version="3.2.4" />
+		<PackageReference Include="NJsonSchema.Extensions" Version="0.1.0" />
+		<PackageReference Include="PushSharp" Version="4.0.10" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="System.Text.Json" Version="8.0.0" />
+		<PackageReference Include="WebGrease" Version="1.6.0" />
+		<PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+	</ItemGroup>
+</Project>
